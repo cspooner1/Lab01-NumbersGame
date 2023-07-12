@@ -1,4 +1,5 @@
 ﻿namespace Numbers_Game;
+//Time: 8 hours
 
 class Program
 {
@@ -44,6 +45,7 @@ class Program
         {
             sum += array[i];
         }
+        //If the sum of numbers is less than the number 20 then an error is caught saying the sum is to low
         if (sum < 20)
         {
             throw new Exception("Number is too low");
@@ -56,13 +58,20 @@ class Program
         Console.WriteLine("Pick a random number between 1 and {0}", array.Length);
         string randomIndex = Console.ReadLine();
         int randomIndexInt = Int32.Parse(randomIndex) - 1;
+        //If the index chosen is larger than the length of the array then an error is caught saying the Index is out of range of the length of the Array
+        if (randomIndexInt > array.Length)
+        {
+            throw new Exception("Index is out of range");
+        }
         int randomeIndex = array[randomIndexInt];
 
         int randomNumber = array[randomIndexInt];
         Console.WriteLine("Random number is {0}", randomNumber);
+
         //multiply
         int product = randomNumber * sum;
         Console.WriteLine("This is the product {0}", product);
+
         return product;
     }
 
